@@ -13,7 +13,20 @@
 Возможные ошибки: Bad request 400 - вы передали неверную информацию, которая не соответсвует формату из примера задания.
 При записи информации с одинаковыми ключами будет записана информация, соответсвующая последнему ключу из одинаковых. При попытке записать те же данные, будет получен ответ, что такие данные в БД уже имеются.
 
-Примеры запросов и ответов: 
+Примеры запросов и ответов(последние 2 скрина - случаи, когда токен неправильный и когда указан чужой токен): 
+![telegram-cloud-photo-size-2-5339204468954226552-y](https://github.com/user-attachments/assets/bfa9cabc-4098-4c32-8585-d917b42a2f0d)
+![telegram-cloud-photo-size-2-5339204468954226553-y](https://github.com/user-attachments/assets/7b4c53cc-2995-4528-b2bf-7aa0fe1787f5)
+![telegram-cloud-photo-size-2-5339204468954226554-y](https://github.com/user-attachments/assets/50f92967-ab8c-4b4b-9675-3322525cf39e)
+![telegram-cloud-photo-size-2-5339204468954226555-y](https://github.com/user-attachments/assets/dbc2b923-4181-4794-94cb-ee4f8f406f47)
+![telegram-cloud-photo-size-2-5339204468954226556-y](https://github.com/user-attachments/assets/605c195c-688f-4d7b-b2b7-fb484931c2ac)
+![telegram-cloud-photo-size-2-5339204468954226558-y](https://github.com/user-attachments/assets/cc12a2b9-ff21-4bb5-9a56-6d1723b9451c)
+![telegram-cloud-photo-size-2-5339204468954226557-y](https://github.com/user-attachments/assets/d9c37192-33c8-40c0-8245-39941f770d4d)
+
+
+
+
+
+
 
 
 
