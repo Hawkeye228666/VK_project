@@ -14,4 +14,9 @@
 При записи информации с одинаковыми ключами будет записана информация, соответсвующая последнему ключу из одинаковых. При попытке записать те же данные, будет получен ответ, что такие данные в БД уже имеются.
 
 Примеры запросов и ответов: 
-<img width="495" alt="image" src="https://github.com/user-attachments/assets/44ed2fb2-a24d-4f86-9b6a-d6f4b9ba9424">
+<img width="637" alt="image" src="https://github.com/user-attachments/assets/4086e87c-850d-40f5-b04c-603fd00bae48">
+<img width="705" alt="image" src="https://github.com/user-attachments/assets/ae07c96f-6e78-4479-9efc-0e5501bac75b">
+<img width="510" alt="image" src="https://github.com/user-attachments/assets/0108c332-8090-4856-86b3-3eef09479722">
+
+
+
