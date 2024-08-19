@@ -48,10 +48,10 @@ def token_required(f):
         if token:
             token = token[7:]  # Assuming "Bearer " prefix
         if not token:
-            return "You need a special token in order to access the DataBase", 403
+            return "Вам нужен специальный токен для доступа", 403
 
         if not verify_token(token):
-            return "Invalid token, your access has been denied", 403
+            return "Неправильный токен, доступ запрещен", 403
 
         return f(*args, **kwargs)
 
@@ -92,7 +92,7 @@ def read_data():
         check = res.replace("- ", "").replace("[", "").replace("]", "").replace("'", "").split(', ')[2]
         print(check)
         if check != token:
-            return "Это не ваша информация"
+            return "Это не ваша информация. Отказано"
 
     future = executor.submit(fetch_data_from_db, keys)
     results = future.result()
@@ -104,9 +104,11 @@ def read_data():
 @token_required
 def write_data():
     data = request.json
+    print(data)
     dictionary = list(data.get('data').items())
     for key in dictionary:
-        if kv_store.select(key[0][0]):
+        if kv_store.select(key[0]):
+
             return "Такие данные уже есть в бд"
     token = request.headers.get('Authorization')
     token = token[7:]
@@ -115,9 +117,12 @@ def write_data():
     def insert_data(item):
         kv_store.insert(item)
 
-    futures = [executor.submit(insert_data, item) for item in dictionary_with_token]
-    for future in futures:
-        future.result()
+    for item in dictionary_with_token:
+        insert_data(item)
+
+    #futures = [executor.submit(insert_data, item) for item in dictionary_with_token]
+    #for future in futures:
+    #    future.result()
 
     return jsonify({"status": 'success'})
 
@@ -125,10 +130,11 @@ def write_data():
 @app.route('/')
 def main():
     token = generate_token({'username': 'admin', 'password': 'presale'})
-    if not kv_store.select():
+    if not kv_store.select(""):
         kv_store.insert((token,))
     return "Возьмите на стажировку(пожалуйста)"
 
 
 if __name__ == '__main__':
+    main()
     app.run(port='8001', debug=True)
