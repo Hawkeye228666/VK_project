@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  tarantool:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tarantool_container
+    ports:
+      - "3301:3301"
+    volumes:
+      - ./data:/opt/tarantool/data
+    command: ["bash", "-c", "./setup.sh && tail -f /dev/null"]
+
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile1
+    container_name: flask_container
+    ports:
+      - "8001:8001"
+    depends_on:
+      - tarantool
+    environment:
+      - TARANTOOL_HOST=tarantool
+      - TARANTOOL_PORT=3301
